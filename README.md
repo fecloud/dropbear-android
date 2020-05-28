@@ -1,10 +1,14 @@
 Android Dropbear 2018.76
 =========
-
+```
 NDK=$(cygpath 'F:\android-ndk-r10c')
 $NDK/build/tools/make-standalone-toolchain.sh --platform=android-21 --install-dir=toolchain --system=windows-x86_64
 export PATH=$PWD/toolchain/bin:$PATH
 
+./dropbearkey -t dss -f dropbear_dss_host_key
+./dropbearkey -t dss -f dropbear_dss_host_key
+/data/local/tmp/dropbear -d /data/local/tmp/dropbear_dss_host_key  -r /data/local/tmp/dropbear_rsa_host_key -p 10022 -P /data/local/tmp/dropbear.pid -R -A -N user -C password -U root -G root 
+```
 
 
 A script & patch to cross-compile Dropbear SSH server/client for use on Android with password authentication.
