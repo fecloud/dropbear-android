@@ -1,6 +1,12 @@
 Android Dropbear 2018.76
 =========
 
+NDK=$(cygpath 'F:\android-ndk-r10c')
+$NDK/build/tools/make-standalone-toolchain.sh --platform=android-21 --install-dir=toolchain --system=windows-x86_64
+export PATH=$PWD/toolchain/bin:$PATH
+
+
+
 A script & patch to cross-compile Dropbear SSH server/client for use on Android with password authentication.
 Since the 64-bit binaries don't seem to work reliably, this project is configured to compile a single muti-purpose 32-bit binary
 using a standalone Android ```r11c``` NDK toolchain.
